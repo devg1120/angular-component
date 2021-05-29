@@ -65,20 +65,22 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     var canvas = new draw2d.Canvas("gfx_holder");
+   // var canvas = new draw2d.Canvas("canvas");
+    // https://github.com/freegroup/draw2d/issues/64
+    canvas.fromDocumentToCanvasCoordinate = $.proxy(function(x, y) {
+    return new draw2d.geo.Point(
+    (x + window.pageXOffset - this.getAbsoluteX() + this.getScrollLeft())*this.zoomFactor,
+    (y + window.pageYOffset - this.getAbsoluteY() + this.getScrollTop())*this.zoomFactor);
+    },canvas);
 
-   // https://github.com/freegroup/draw2d/issues/64
+    canvas.fromCanvasToDocumentCoordinate = $.proxy(function(x,y) {
+    return new draw2d.geo.Point(
+    ((x*(1/this.zoomFactor)) + this.getAbsoluteX() - this.getScrollLeft() - window. pageXOffset),
+    ((y*(1/this.zoomFactor)) + this.getAbsoluteY() - this.getScrollTop() - window.pageYOffset));
+    },canvas);
 
-   canvas.fromDocumentToCanvasCoordinate = $.proxy(function(x, y) {
-   return new draw2d.geo.Point(
-   (x + window.pageXOffset - this.getAbsoluteX() + this.getScrollLeft())*this.zoomFactor,
-   (y + window.pageYOffset - this.getAbsoluteY() + this.getScrollTop())*this.zoomFactor);
-   },canvas);
 
-   canvas.fromCanvasToDocumentCoordinate = $.proxy(function(x,y) {
-   return new draw2d.geo.Point(
-   ((x*(1/this.zoomFactor)) + this.getAbsoluteX() - this.getScrollLeft() - window. pageXOffset),
-   ((y*(1/this.zoomFactor)) + this.getAbsoluteY() - this.getScrollTop() - window.pageYOffset));
-   },canvas);
+
 
 
 

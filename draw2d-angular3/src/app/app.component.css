@@ -1,12 +1,17 @@
 #gfx_holder {
     border: medium solid #ff00ff;
-    position : relative;
+      padding: 0px;
+        margin: 0px;
+          position: relative;
+width: 600pt;
+height: 600pt;
   }
 
 .box {
         display: flex;
     border: medium solid yellow;
     width: 100%;
+          position: absolute;
 }
       
 .panel {
@@ -18,6 +23,8 @@
      flex: 1 ;
     border: medium solid green;
     order: 2;
+    width: 400pt;
+    height: 500pt;
 
 }
 
