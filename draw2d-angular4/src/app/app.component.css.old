@@ -1,0 +1,23 @@
+#gfx_holder {
+    border: medium solid #ff00ff;
+    position : relative;
+  }
+
+.box {
+        display: flex;
+    border: medium solid yellow;
+    width: 100%;
+}
+      
+.panel {
+     flex: 1 ;
+    border: medium solid blue;
+    order: 1;
+}
+.canvas {
+     flex: 1 ;
+    border: medium solid green;
+    order: 2;
+
+}
+

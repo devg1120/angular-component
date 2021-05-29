@@ -14,6 +14,7 @@ declare let draw2d:any;
 export class AppComponent implements OnInit {
   title = 'draw2d-angular';
   result = '現在時刻は不明です。';
+  canvas_ = null;
 
   jsonDocument =
     [
@@ -60,11 +61,12 @@ export class AppComponent implements OnInit {
           "id": "ebfb35bb-5767-8155-c804-14bd48789dc22",
           "x": 72,
           "y": 45
- )       }
+        }
      ];
 
   ngOnInit() {
     var canvas = new draw2d.Canvas("gfx_holder");
+    this.canvas_ = canvas;
    // var canvas = new draw2d.Canvas("canvas");
     // https://github.com/freegroup/draw2d/issues/64
     /*
@@ -128,14 +130,14 @@ export class AppComponent implements OnInit {
   }
   onclick() {
     this.result = `現在時刻は、${new Date().toLocaleTimeString()}です。`;
-/*
+
     //        var cmd = new draw2d.command.CommandMove(figure);
     //        cmd.setPosition(parseInt($("#property_position_x").val()),parseInt($("#property_position_y").val()));
     //       figure.getCanvas().getCommandStack().execute(cmd);
-    let figure = canvas.getFigurex("ebfb35bb-5767-8155-c804-14bd48789dc21")
+    let figure = this.canvas_.getFigure("ebfb35bb-5767-8155-c804-14bd48789dc21")
     let cmd = new draw2d.command.CommandMove(figure);
     cmd.setPosition(0,0);
-    canvas.getCommandStack().execute(cmd);
-*/
+    this.canvas_.getCommandStack().execute(cmd);
+
   }
 }
