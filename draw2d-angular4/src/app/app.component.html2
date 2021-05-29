@@ -26,16 +26,8 @@
           <input type="button" value="現在時刻" (click)="onclick()" />
           <input type="button" value="現在時刻" (click)="onclick()" />
                     <div class="input-group" >
-                    <!--
                         <div>x: <input id="property_position_x" type="text" class="form-control" [value]="vx"/></div>
                         <div>y: <input id="property_position_y" type="text" class="form-control" [value]="vy"/></div>
-                     -->
-                    <!--
-                        <div>x: <input id="property_position_x" type="text" class="form-control" [ngModel]="vx" (input)="vx=$event.target.value"/></div>
-                        <div>y: <input id="property_position_y" type="text" class="form-control" [ngModel]="vy" (input)="vy=$event.target.value"/></div>
-                     -->
-                        <div>x: <input id="property_position_x" type="text" class="form-control"  (change)="onchange($event)"/></div>
-                        <div>y: <input id="property_position_y" type="text" class="form-control"  (change)="onchange($event)"/></div>
                    </div>
     </div>
 </div>

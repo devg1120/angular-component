@@ -130,9 +130,6 @@ export class AppComponent implements OnInit {
     //draw2d.displayJSON(canvas);
 
   }
-  onchange(e: any) {
-    console.log("change:", e)
-  }
   onclick() {
     this.result = `現在時刻は、${new Date().toLocaleTimeString()}です。`;
 
