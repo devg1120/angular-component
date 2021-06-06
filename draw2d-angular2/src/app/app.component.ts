@@ -92,7 +92,7 @@ export class AppComponent implements OnInit {
   
     // display the JSON document in the preview DIV
     //
-    draw2d.displayJSON(canvas);
+    //draw2d.displayJSON(canvas);
 
   }
   onclick() {

@@ -1,0 +1,9 @@
+ner {
+    display: flex;
+}
+
+.item {
+    margin: 5px;
+    border: solid 1px #00ff7f;
+    background-color: #ffffff;
+}
