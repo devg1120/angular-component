@@ -1,42 +1,43 @@
-<!--
-<div class="test" id="gfx_holder"></div>
-<input type="button" value="現在時刻" (click)="onclick()" />
-<div>{{result}}</div>
--->
-
-<!--
-<div class="container">
-    <div class="item">
-          <input type="button" value="現在時刻" (click)="onclick()" />
-          <div>{{result}}</div>
-    </div>
-    <div class="item">
-          <div class="canvas" id="gfx_holder"></div>
-    </div>
-</div>
--->
-
 <div class="box">
-    <div class="canvas" >
-              <div class="test" id="gfx_holder"></div>
-    </div>
-    <div class="panel">
-          <input type="button" value="現在時刻" (click)="onclick()" />
-          <div>{{result}}</div>
-          <input type="button" value="現在時刻" (click)="onclick()" />
-          <input type="button" value="現在時刻" (click)="onclick()" />
-                    <div class="input-group" >
-                    <!--
-                        <div>x: <input id="property_position_x" type="text" class="form-control" [value]="vx"/></div>
-                        <div>y: <input id="property_position_y" type="text" class="form-control" [value]="vy"/></div>
-                     -->
-                    <!--
-                        <div>x: <input id="property_position_x" type="text" class="form-control" [ngModel]="vx" (input)="vx=$event.target.value"/></div>
-                        <div>y: <input id="property_position_y" type="text" class="form-control" [ngModel]="vy" (input)="vy=$event.target.value"/></div>
-                     -->
-                        <div>x: <input id="property_position_x" type="text" class="form-control"  (change)="onchange($event)"/></div>
-                        <div>y: <input id="property_position_y" type="text" class="form-control"  (change)="onchange($event)"/></div>
-                   </div>
-    </div>
+  <div class="canvas">
+     <canvas_base [title]="XYZ" [name]="NAME" [major]="major" [minor]="minor"
+        
+      *ngFor="let voter of voters"
+             [name2]="voter"
+             (voted)="onVoted($event)"
+     >
+     </canvas_base>
+  </div>
+
+  <div class="panel">
+     <input type="button" value="現在時刻" (click)="onclick()" />
+     <div>{{result}}</div>
+     <div class="input-group" >
+          <!--
+              <div>x: <input id="property_position_x" type="text" class="form-control" [value]="vx"/></div>
+              <div>y: <input id="property_position_y" type="text" class="form-control" [value]="vy"/></div>
+           -->
+          <!--
+              <div>x: <input id="property_position_x" type="text" class="form-control" [ngModel]="vx" (input)="vx=$event.target.value"/></div>
+              <div>y: <input id="property_position_y" type="text" class="form-control" [ngModel]="vy" (input)="vy=$event.target.value"/></div>
+           -->
+          <div>x: <input id="property_position_x" type="text" class="form-control"  (change)="onchange($event)"/></div>
+          <div>y: <input id="property_position_y" type="text" class="form-control"  (change)="onchange($event)"/></div>
+     </div>
+     <div class="input-group" >
+       <h4>Source code version</h4>
+       <button (click)="newMinor()">New minor version</button>
+       <button (click)="newMajor()">New major version</button>
+     </div>
+
+    <h3>Should mankind colonize the Universe?</h3>
+    <h3>Agree: {{agreed}}, Disagree: {{disagreed}}</h3>
+
+    <h3>Countdown to Liftoff (via ViewChild)</h3>
+    <button (click)="start()">Start</button>
+    <button (click)="stop()">Stop</button>
+    <div class="seconds">{{ seconds() }}</div>
+
+  </div>
 </div>
 

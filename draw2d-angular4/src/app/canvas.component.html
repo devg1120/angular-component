@@ -1,0 +1,12 @@
+<a>{{title}}</a>
+<a>{{name}}</a>
+<a> [Version {{major}}.{{minor}}]</a>
+<h4>{{name2}}</h4>
+<button (click)="vote(true)"  [disabled]="didVote">Agree</button>
+<button (click)="vote(false)" [disabled]="didVote">Disagree</button>
+<p>{{message}}</p>
+<!--
+<div class="test" id="gfx_holder"></div>
+-->
+<div id="gfx_holder"></div>
+

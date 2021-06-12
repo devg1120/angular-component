@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
 import  * as jdoc1  from './jsonDocument1';
 import  * as jdoc2  from './jsonDocument2';
 
@@ -6,14 +6,38 @@ import  * as jdoc2  from './jsonDocument2';
 declare let draw2d:any;
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'canvas_base',
+  templateUrl: './canvas.component.html',
+  styleUrls: ['./canvas.component.css']
 })
 
-export class AppComponent implements OnInit {
-  title = 'draw2d-angular';
+export class CanvasComponent implements OnInit, OnDestroy {
+  @Input() title : string
+
+  @Input()
+  get name(): string { return this._name; }
+  set name(name: string) {
+    this._name = (name && name.trim()) || '<no name set>';
+  }
+  private _name = '';
+
+  @Input()  name2 = '';
+  @Output() voted = new EventEmitter<boolean>();
+  didVote = false;
+
+  //title = 'draw2d-angular';
   result = '現在時刻は不明です。';
+  canvas_ = null;
+  vx = 999;
+  vy = 999;
+
+  @Input() major = 0;
+  @Input() minor = 0;
+  changeLog: string[] = [];
+
+  intervalId = 0;
+  message = '';
+  seconds = 11;
 
   jsonDocument =
     [
@@ -65,6 +89,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     var canvas = new draw2d.Canvas("gfx_holder");
+    this.canvas_ = canvas;
    // var canvas = new draw2d.Canvas("canvas");
     // https://github.com/freegroup/draw2d/issues/64
     /*
@@ -126,16 +151,63 @@ export class AppComponent implements OnInit {
     //draw2d.displayJSON(canvas);
 
   }
+  onchange(e: any) {
+    console.log("change:", e)
+  }
   onclick() {
     this.result = `現在時刻は、${new Date().toLocaleTimeString()}です。`;
-/*
+
     //        var cmd = new draw2d.command.CommandMove(figure);
     //        cmd.setPosition(parseInt($("#property_position_x").val()),parseInt($("#property_position_y").val()));
     //       figure.getCanvas().getCommandStack().execute(cmd);
-    let figure = canvas.getFigurex("ebfb35bb-5767-8155-c804-14bd48789dc21")
+    let figure = this.canvas_.getFigure("ebfb35bb-5767-8155-c804-14bd48789dc21")
     let cmd = new draw2d.command.CommandMove(figure);
     cmd.setPosition(0,0);
-    canvas.getCommandStack().execute(cmd);
-*/
+    this.canvas_.getCommandStack().execute(cmd);
+    this.vx = 0;
+    this.vy = 0;
+
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    const log: string[] = [];
+    for (const propName in changes) {
+      const changedProp = changes[propName];
+      const to = JSON.stringify(changedProp.currentValue);
+      if (changedProp.isFirstChange()) {
+        log.push(`Initial value of ${propName} set to ${to}`);
+      } else {
+        const from = JSON.stringify(changedProp.previousValue);
+        log.push(`${propName} changed from ${from} to ${to}`);
+      }
+    }
+    this.changeLog.push(log.join(', '));
+  }
+   vote(agreed: boolean) {
+    this.voted.emit(agreed);
+    this.didVote = true;
+  }
+
+    ngOnDestroy() { this.clearTimer(); }
+
+  start() { this.countDown(); }
+  stop()  {
+    this.clearTimer();
+    this.message = `Holding at T-${this.seconds} seconds`;
+  }
+
+  private clearTimer() { clearInterval(this.intervalId); }
+
+  private countDown() {
+    this.clearTimer();
+    this.intervalId = window.setInterval(() => {
+      this.seconds -= 1;
+      if (this.seconds === 0) {
+        this.message = 'Blast off!';
+      } else {
+        if (this.seconds < 0) { this.seconds = 10; } // reset
+        this.message = `T-${this.seconds} seconds and counting`;
+      }
+    }, 1000);
   }
 }
