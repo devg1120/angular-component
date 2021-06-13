@@ -2,12 +2,21 @@
   <div class="canvas">
      <canvas_base [title]="XYZ" [name]="NAME" [major]="major" [minor]="minor"
         
-      *ngFor="let voter of voters"
-             [name2]="voter"
-             (voted)="onVoted($event)"
+        [name2]="voters[0]"
+        (voted)="onVoted($event)"
+
+        [astronaut]="astronauts[0]"
      >
      </canvas_base>
   </div>
+<!--
+      *ngFor="let voter of voters"
+             [name2]="voter"
+             (voted)="onVoted($event)"
+
+      *ngFor="let astronaut of astronauts"
+      [astronaut]="astronaut">
+-->
 
   <div class="panel">
      <input type="button" value="現在時刻" (click)="onclick()" />
@@ -37,6 +46,13 @@
     <button (click)="start()">Start</button>
     <button (click)="stop()">Stop</button>
     <div class="seconds">{{ seconds() }}</div>
+
+    <h2>Mission Control</h2>
+     <button (click)="announce()">Announce mission</button>
+    <h3>History</h3>
+    <ul>
+      <li *ngFor="let event of history">{{event}}</li>
+    </ul>
 
   </div>
 </div>

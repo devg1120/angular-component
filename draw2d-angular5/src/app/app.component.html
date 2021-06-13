@@ -1,0 +1,56 @@
+<mat-toolbar>
+  <span>My Application</span>
+</mat-toolbar>
+<div class="box">
+  <div class="canvas">
+     <canvas_base [title]="XYZ" [name]="NAME" [major]="major" [minor]="minor"
+        
+        [name2]="voters[0]"
+        (voted)="onVoted($event)"
+
+        [astronaut]="astronauts[0]"
+     >
+     </canvas_base>
+  </div>
+<!--
+      *ngFor="let voter of voters"
+             [name2]="voter"
+             (voted)="onVoted($event)"
+
+      *ngFor="let astronaut of astronauts"
+      [astronaut]="astronaut">
+-->
+
+  <div class="panel">
+     <input type="button" value="現在時刻" (click)="onclick()" />
+     <div>{{result}}</div>
+     <div class="input-group" >
+          <div>x: <input matInput id="property_position_x" type="text" class="form-control"  (change)="onchange($event)"/></div>
+          <div>y: <input metInput id="property_position_y" type="text" class="form-control"  (change)="onchange($event)"/></div>
+     </div>
+     <div class="input-group" >
+       <h4>Source code version</h4>
+       <button mat-button (click)="newMinor()">New minor version</button>
+       <button mat-button (click)="newMajor()">New major version</button>
+     </div>
+
+    <mat-divider></mat-divider>
+    <h3>Should mankind colonize the Universe?</h3>
+    <h3>Agree: {{agreed}}, Disagree: {{disagreed}}</h3>
+
+    <h3>Countdown to Liftoff (via ViewChild)</h3>
+    <button mat-raised-button color="primary" (click)="start()">Start</button>
+    <button mat-raised-button color="accent" (click)="stop()">Stop</button>
+    <div class="seconds">{{ seconds() }}</div>
+
+    <mat-divider></mat-divider>
+    <h2>Mission Control</h2>
+     <button mat-raised-button (click)="announce()">Announce mission</button>
+    <h3>History</h3>
+    <ul>
+      <li *ngFor="let event of history">{{event}}</li>
+    </ul>
+
+  </div>
+</div>
+
