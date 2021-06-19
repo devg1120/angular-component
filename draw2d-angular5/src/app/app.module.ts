@@ -10,6 +10,10 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
+
 
 
 
@@ -26,7 +30,9 @@ import {MatDividerModule} from '@angular/material/divider';
     MatButtonModule,
     MatInputModule,
     MatToolbarModule,
-    MatDividerModule
+    MatDividerModule,
+    MatCardModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -22,17 +22,40 @@
 -->
 
   <div class="panel">
+    <!--
      <input type="button" value="現在時刻" (click)="onclick()" />
-     <div>{{result}}</div>
-     <div class="input-group" >
+    -->
+    <button mat-raised-button  (click)="onclick()">現在時刻</button>
+    <mat-card>
+        	{{result}}  
+    </mat-card>
+
+    <mat-divider></mat-divider>
+
+    <!--
+    <div class="input-group" >
           <div>x: <input matInput id="property_position_x" type="text" class="form-control"  (change)="onchange($event)"/></div>
           <div>y: <input metInput id="property_position_y" type="text" class="form-control"  (change)="onchange($event)"/></div>
      </div>
-     <div class="input-group" >
-       <h4>Source code version</h4>
-       <button mat-button (click)="newMinor()">New minor version</button>
-       <button mat-button (click)="newMajor()">New major version</button>
-     </div>
+    -->
+
+
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>psition x</mat-label>
+          <input matInput id="property_position_x"   (change)="onchange($event)"/>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>position y</mat-label>
+          <input matInput id="property_position_y"    (change)="onchange($event)"/>
+  </mat-form-field>
+</form>
+
+     <h4>Source code version</h4>
+     <button mat-button (click)="newMinor()">New minor version</button>
+     <button mat-button (click)="newMajor()">New major version</button>
+     
 
     <mat-divider></mat-divider>
     <h3>Should mankind colonize the Universe?</h3>

@@ -1,3 +1,25 @@
+::ng-deep .mat-toolbar{
+  z-index: 999;
+  position: fixed
+}
+::ng-deep .mat-tab-group{
+  margin-top:55px !important;
+}
+
+::ng-deep .mat-tab-header{
+      z-index: 999;
+      width:100vw;
+      position: fixed  !important;
+      background-color: red !important;
+}
+::ng-deep .mat-tab-body-wrapper{
+    position: relative !important;
+    margin-top:55px;
+  }
+
+
+
+
 #gfx_holder {
     border: medium solid #ff00ff;
     padding: 0px;
@@ -9,6 +31,7 @@
     display: flex;
     border: medium solid yellow;
     width: 100%;
+    margin-top: 64px;
     position: absolute;
 }
       
