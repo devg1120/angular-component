@@ -1,0 +1,11 @@
+$cellHeight: 40px;
+
+:host {
+  display: flex;
+  flex-shrink: 0;
+  word-break: break-all;
+  height: $cellHeight;
+  line-height: $cellHeight;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

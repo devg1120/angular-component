@@ -1,0 +1,6 @@
+<ng-container *ngFor='let col of columns'>
+  <app-cell *ngIf='!col.hidden'
+            [data]='data[col.field]'
+            [style.width.px]='col.width'
+            [style.flex-shrink]='col.width ? 0 : 1'></app-cell>
+</ng-container>

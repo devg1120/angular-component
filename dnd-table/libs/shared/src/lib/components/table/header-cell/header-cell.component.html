@@ -1,0 +1,9 @@
+<app-cell [data]='column?.headerName'></app-cell>
+<app-sort-button *ngIf='column.sortable' [sortOrder]='column.sortOrder' (sortingChange)='onSortingChange($event)'></app-sort-button>
+
+<ng-container *ngIf="column.resizable">
+  <div
+    (mousedown)="resizeInit($event)"
+    class="item-resizable-handler"
+  ></div>
+</ng-container>

@@ -1,0 +1,5 @@
+<app-table [data]='users$ | async'
+           [columns]='columns$ | async'
+           (columnReorder)='onColumnReorder($event)'
+           (columnResize)='onColumnResize($event)'
+           (sortingChange)='onSortingChange($event)'></app-table>

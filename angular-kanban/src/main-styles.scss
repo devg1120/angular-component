@@ -1,0 +1,20 @@
+// Global Styles and Bulma Config
+
+// Import Google Fonts - Lato and Nunito
+
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700|Lato:400,800,900");
+
+// Custom Bulma Variables
+$family-sans-serif: "Nunito", sans-serif;
+$input-border-color: transparent;
+$input-shadow: none;
+
+// Global Styles
+html,
+body {
+  height: 100%;
+}
+
+html {
+  background: linear-gradient(45deg, #efd5ff 0%, #515ada 100%);
+}

@@ -1,0 +1,149 @@
+p {
+    font-family: Lato;
+  }
+  
+  .control-image {
+    position: absolute;
+    // text-align: left;
+    cursor: move;
+    max-width: 500px;
+    max-height: 500px;
+    min-height: 300px;
+    min-width: 300px;
+    background-color: #1cacff77;    
+
+  }
+  
+  .dragHandle {
+    background-color: #1cacff;    
+    cursor: nwse-resize;
+  }
+  
+  .dragHandle.rb {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 0;
+    left: 0;
+    cursor: nwse-resize;
+  }
+
+  .dragHandle.lb {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    left: 0;
+    bottom: 0;
+    cursor: nesw-resize;
+  }
+
+  .dragHandle.lt {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    left: 0;
+    top: 0;
+    cursor: nwse-resize;
+  }
+
+  .dragHandle.rt {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    right: 0;
+    top: 0;
+    cursor: nesw-resize;
+  }
+  
+  // .dragHandle.right {
+  //   width: 15px;
+  //   height: 15px;
+  //   cursor: ew-resize;
+  // }
+  
+  // .dragHandle.bottom {
+  //   width: 15px;
+  //   height: 15px;
+  //   cursor: ns-resize;
+  // }
+
+
+  .example-boundary {
+    min-width: 650px;
+    max-width: 650px;
+    min-height: 400px;
+    max-height: 400px;
+    // overflow: hidden;
+    /* max-width: 100%; */
+    // max-width: 1366px;
+    // border: dotted #ccc 2px;
+    outline: 1px solid black;
+    position: relative;
+  }
+
+
+  .example-box {
+    // width: 200px;
+    // height: 200px;
+    // background-color: #b1faf7;
+    border: solid 1px #ccc;
+    color: rgba(0, 0, 0, 0.87);
+    cursor: move;
+    // background: #fff;
+    border-radius: 4px;
+    // z-index: 1;
+    transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+                0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  }
+  
+  .example-box:active {
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+
+  .cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+  
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .example-box:last-child {
+    border: none;
+  }
+  
+  .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .example-custom-placeholder {
+    background: #ccc;
+    border: dotted 3px #999;
+    min-height: 150px;
+    width: 150px;
+    margin: 8px;
+    padding: 8px;
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+
+  .resize-action {
+    position: absolute;
+    left: 100%;
+    top: 100%;
+    transform: translate3d(-50%, -50%, 0) rotateZ(45deg);
+    border-style: solid;
+    border-width: 8px;
+    border-color: transparent transparent transparent #008000;
+    &:hover, &:active {
+        cursor: nwse-resize;
+    }
+}

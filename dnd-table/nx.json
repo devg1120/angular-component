@@ -1,0 +1,20 @@
+{
+  "implicitDependencies": {
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    ".eslintrc.json": "*"
+  },
+  "affected": { "defaultBase": "master" },
+  "npmScope": "app",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
+    }
+  },
+  "projects": {
+    "dnd-table": { "tags": [] },
+    "dnd-table-e2e": { "tags": [], "implicitDependencies": ["dnd-table"] },
+    "table": { "tags": [] },
+    "shared": { "tags": [] }
+  }
+}

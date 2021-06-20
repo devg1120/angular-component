@@ -1,0 +1,14 @@
+<div cdkDropList
+     cdkDropListLockAxis='x'
+     cdkDropListOrientation='horizontal'
+     (cdkDropListDropped)='dropListDropped($event)'>
+  <div *ngFor='let col of columns; let i = index'
+       cdkDrag
+       [cdkDragData]='col' class='drag-wrapper'>
+    <span cdkDragHandle class='dnd-handle'>&#9783;</span>
+    <app-header-cell *ngIf='!col.hidden'
+                     [column]='col'
+                     (sortingChange)='onSortingChange($event)'
+                     (cellResize)='onColumnResize($event)'></app-header-cell>
+  </div>
+</div>

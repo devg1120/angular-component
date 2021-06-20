@@ -1,0 +1,7 @@
+<app-header [columns]='columns'
+            (columnResize)='onColumnResize($event)'
+            (sortingChange)='onSortingChange($event)'
+            (columnMove)='onColumnMove($event)'></app-header>
+<ng-container *ngFor='let row of data; let i = index'>
+  <app-row [data]='row' [columns]='columns' [ngClass]="[i % 2 ? 'row-even' : 'row-odd']"></app-row>
+</ng-container>

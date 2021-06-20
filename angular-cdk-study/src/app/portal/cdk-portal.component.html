@@ -1,0 +1,35 @@
+<h3>通过 cdk portal 显示view</h3>
+<app-portal-component></app-portal-component>
+<app-portal-template></app-portal-template>
+<button appToolTip tooltipText="This is a tooltip">tool tip</button>
+<br>
+<br>
+<!-- Portal显示的位置 -->
+<div class="demo-portal-host">
+    <!-- cdkPortalOutlet来指定动态内容需要放置的地方，参数是selectedPortal他是一个ComponentPortal或者TemplatePortal
+     显示的内容会根据selectedPortal的改变而改变-->
+    <ng-template cdkPortalHost [cdkPortalOutlet]="selectedPortal" (attached)="onPortalAttached()"></ng-template>
+</div>
+<br>
+<button (click)="cdkPortalFirst()">
+    第一个cdkPortal
+</button>
+<button style="margin-left: 10px" (click)="cdkPortalLast()">
+    最后一个cdkPortal
+</button>
+<button style="margin-left: 10px" (click)="cdkPortalComponent()">
+    portal组件
+</button>
+
+<!-- #divPortal="cdkPortal",CdkPortal指令有exportAs: 'cdkPortal'元数据，所以我们才可以这么写来获取，来获取CdkPortal对象  -->
+<ng-template #templatePortal="cdkPortal" cdkPortal let-obj let-location="location">
+    <h2>ng-template 指定的内容(first) 外部参数 {{obj.age}}</h2>
+</ng-template>
+<!-- 不建议在div上添加*cdkPortal指令，完全可以用ng-template代替 -->
+<div *cdkPortal>
+    <h2>ng-template 指定的内容(last)</h2>
+</div>
+
+<ng-template #outOfApp>
+    <h1>这部分内容在app-root标签之外</h1>
+</ng-template>

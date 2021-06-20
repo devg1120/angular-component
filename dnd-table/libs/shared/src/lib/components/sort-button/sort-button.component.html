@@ -1,0 +1,8 @@
+<div [ngClass]='sortOrder' (click)='onSortingChange()'>
+  <ng-container [ngSwitch]='sortOrder'>
+    <ng-container *ngSwitchCase='sortOrderValues.Desc'>&#8595;</ng-container>
+    <ng-container *ngSwitchCase='sortOrderValues.Asc'>&#8593;</ng-container>
+    <ng-container *ngSwitchCase='sortOrderValues.None'>&#8645;</ng-container>
+    <ng-container *ngSwitchDefault>&#8645;</ng-container>
+  </ng-container>
+</div>

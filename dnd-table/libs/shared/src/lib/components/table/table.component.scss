@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+
+  .row-even {
+    background-color: #f7f9fc;
+  }
+
+  app-row {
+    &:hover {
+      background-color: #EAF4FE;
+    }
+  }
+}
