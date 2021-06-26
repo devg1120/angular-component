@@ -1,0 +1,500 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "global-overlay-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/global-overlay-app",
+      "sourceRoot": "projects/global-overlay-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/global-overlay-app",
+            "index": "projects/global-overlay-app/src/index.html",
+            "main": "projects/global-overlay-app/src/main.ts",
+            "polyfills": "projects/global-overlay-app/src/polyfills.ts",
+            "tsConfig": "projects/global-overlay-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/global-overlay-app/src/favicon.ico",
+              "projects/global-overlay-app/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/global-overlay-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/global-overlay-app/src/environments/environment.ts",
+                  "with": "projects/global-overlay-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "global-overlay-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "global-overlay-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "global-overlay-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/global-overlay-app/src/test.ts",
+            "polyfills": "projects/global-overlay-app/src/polyfills.ts",
+            "tsConfig": "projects/global-overlay-app/tsconfig.spec.json",
+            "karmaConfig": "projects/global-overlay-app/karma.conf.js",
+            "assets": [
+              "projects/global-overlay-app/src/favicon.ico",
+              "projects/global-overlay-app/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/global-overlay-app/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/global-overlay-app/tsconfig.app.json",
+              "projects/global-overlay-app/tsconfig.spec.json",
+              "projects/global-overlay-app/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/global-overlay-app/e2e/protractor.conf.js",
+            "devServerTarget": "global-overlay-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "global-overlay-app:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "connected-overlay-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/connected-overlay-app",
+      "sourceRoot": "projects/connected-overlay-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/connected-overlay-app",
+            "index": "projects/connected-overlay-app/src/index.html",
+            "main": "projects/connected-overlay-app/src/main.ts",
+            "polyfills": "projects/connected-overlay-app/src/polyfills.ts",
+            "tsConfig": "projects/connected-overlay-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/connected-overlay-app/src/favicon.ico",
+              "projects/connected-overlay-app/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/connected-overlay-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/connected-overlay-app/src/environments/environment.ts",
+                  "with": "projects/connected-overlay-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "connected-overlay-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "connected-overlay-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "connected-overlay-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/connected-overlay-app/src/test.ts",
+            "polyfills": "projects/connected-overlay-app/src/polyfills.ts",
+            "tsConfig": "projects/connected-overlay-app/tsconfig.spec.json",
+            "karmaConfig": "projects/connected-overlay-app/karma.conf.js",
+            "assets": [
+              "projects/connected-overlay-app/src/favicon.ico",
+              "projects/connected-overlay-app/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/connected-overlay-app/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/connected-overlay-app/tsconfig.app.json",
+              "projects/connected-overlay-app/tsconfig.spec.json",
+              "projects/connected-overlay-app/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/connected-overlay-app/e2e/protractor.conf.js",
+            "devServerTarget": "connected-overlay-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "connected-overlay-app:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "backdrop-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/backdrop-app",
+      "sourceRoot": "projects/backdrop-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/backdrop-app",
+            "index": "projects/backdrop-app/src/index.html",
+            "main": "projects/backdrop-app/src/main.ts",
+            "polyfills": "projects/backdrop-app/src/polyfills.ts",
+            "tsConfig": "projects/backdrop-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/backdrop-app/src/favicon.ico",
+              "projects/backdrop-app/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/backdrop-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/backdrop-app/src/environments/environment.ts",
+                  "with": "projects/backdrop-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "backdrop-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "backdrop-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "backdrop-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/backdrop-app/src/test.ts",
+            "polyfills": "projects/backdrop-app/src/polyfills.ts",
+            "tsConfig": "projects/backdrop-app/tsconfig.spec.json",
+            "karmaConfig": "projects/backdrop-app/karma.conf.js",
+            "assets": [
+              "projects/backdrop-app/src/favicon.ico",
+              "projects/backdrop-app/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/backdrop-app/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/backdrop-app/tsconfig.app.json",
+              "projects/backdrop-app/tsconfig.spec.json",
+              "projects/backdrop-app/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/backdrop-app/e2e/protractor.conf.js",
+            "devServerTarget": "backdrop-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "backdrop-app:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "inject-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/inject-app",
+      "sourceRoot": "projects/inject-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/inject-app",
+            "index": "projects/inject-app/src/index.html",
+            "main": "projects/inject-app/src/main.ts",
+            "polyfills": "projects/inject-app/src/polyfills.ts",
+            "tsConfig": "projects/inject-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/inject-app/src/favicon.ico",
+              "projects/inject-app/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/inject-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/inject-app/src/environments/environment.ts",
+                  "with": "projects/inject-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "inject-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "inject-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "inject-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/inject-app/src/test.ts",
+            "polyfills": "projects/inject-app/src/polyfills.ts",
+            "tsConfig": "projects/inject-app/tsconfig.spec.json",
+            "karmaConfig": "projects/inject-app/karma.conf.js",
+            "assets": [
+              "projects/inject-app/src/favicon.ico",
+              "projects/inject-app/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/inject-app/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/inject-app/tsconfig.app.json",
+              "projects/inject-app/tsconfig.spec.json",
+              "projects/inject-app/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/inject-app/e2e/protractor.conf.js",
+            "devServerTarget": "inject-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "inject-app:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "inject-app"
+}
