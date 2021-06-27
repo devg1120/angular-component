@@ -1,0 +1,40 @@
+<section>
+  <h1>ListKeyManager</h1>
+  <ul>
+    <li>
+      このクラスは、選択可能なリストのキーボードイベントを管理します。アイテムのクエリリストを渡すと、矢印イベントが発生したときにアクティブなアイテムが正しく設定されます。
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h2>sample1</h2>
+  <p>FocusKeyManagerを使用した例</p>
+  <div class="Sample1ListBox">
+    <app-list class="Sample1ListBox_List" [class.ListBox-List-visible]="isVisibleListItem">
+      <app-list-item
+        *ngFor="let fruit of fruits"
+        [fruit]="fruit"
+        class="Sample1ListBox-ListItem"
+      ></app-list-item>
+    </app-list>
+  </div>
+</section>
+
+<section>
+  <h2>sample2（検証中）</h2>
+  <div class="ListBox">
+    <button (click)="onClickButton()">{{ itemLabel }}</button>
+    <app-list class="ListBox-List" [class.ListBox-List-visible]="isVisibleListItem" id="app-list">
+      <app-list-item
+        *ngFor="let fruit of fruits"
+        [fruit]="fruit"
+        class="ListBox-ListItem"
+      ></app-list-item>
+    </app-list>
+  </div>
+</section>
+
+<section>
+  <a routerLink="/">トップ画面に戻る</a>
+</section>

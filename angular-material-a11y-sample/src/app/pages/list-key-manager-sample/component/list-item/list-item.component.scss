@@ -1,0 +1,17 @@
+:host {
+  padding: 8px;
+}
+
+:host:focus {
+  background: lightblue;
+  color: #fff;
+}
+
+.active {
+  background-color: lightblue;
+  color: #fff;
+}
+
+.disabled {
+  opacity: 0.3;
+}

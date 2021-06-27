@@ -1,0 +1,36 @@
+.Sample1ListBox_List {
+  background: #fff;
+  border-radius: 8px;
+  border: #ccc 1px solid;
+  width: 400px;
+}
+
+.Sample1ListBox-ListItem {
+  display: block;
+}
+
+.ListBox {
+  position: relative;
+}
+
+.ListBox-List {
+  display: none;
+  background: #fff;
+  border-radius: 8px;
+  border: #ccc 1px solid;
+  position: absolute;
+  top: 32px;
+  left: 0;
+  z-index: 1;
+  width: 400px;
+}
+
+.ListBox-List-visible {
+  display: block;
+}
+
+.ListBox-ListItem {
+  display: block;
+}
+
+

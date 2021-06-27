@@ -1,0 +1,61 @@
+<section>
+  <h1>FocusTrap</h1>
+  <ul>
+    <li>
+      cdkTrapFocus ディレクティブは指定した要素内にキーフォーカスを制限します。
+    </li>
+    <li>
+      タブ、タブ + シフトキー押下時 cdkTrapFocus を指定した要素の範囲内でフォーカスが移動します。
+    </li>
+    <li>タブキーを押すとhtml上の上から下にフォーカスが移動していきます。</li>
+    <li>cdkfocusregionstartはタブキー押下時に移動できる上方向の要素のマーカーのようです。</li>
+    <li>タブ + シフトキーを押すとhtml上の下から上にフォーカスが移動していきます。</li>
+    <li>cdkfocusregionendはタブ + シフトキー押下時に移動できる下方向の要素のマーカーのようです。</li>
+    <li>[cdkTrapFocusAutoCapture]="true" と cdkFocusInitialを併用すると、cdkFocusInitialの箇所に最初にフォーカスがあたります。</li>
+  </ul>
+</section>
+
+<section>
+  <h2>sample1</h2>
+  <div class="Sample1_Content" cdkTrapFocus [cdkTrapFocusAutoCapture]="true">
+    <ul>
+      <li><a routerLink="/">cdkfocusregionstartの外</a></li>
+      <li><a routerLink="/" cdkfocusregionstart="true">cdkfocusregionstart</a></li>
+      <li><a routerLink="/" cdkFocusInitial>cdkFocusInitial</a></li>
+      <li><a routerLink="/">何もなし</a></li>
+      <li><a routerLink="/" cdkfocusregionend="true">cdkfocusregionend</a></li>
+      <li><a routerLink="/">cdkfocusregionendの外</a></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>sample2（検証中）</h2>
+  <button (click)="openDialog()">ダイアログ表示</button>
+</section>
+
+<!-- ダイアログここから -->
+<section class="ModalDialog" [class.ModalDialog-visible]="isVisibleDialog" (click)="closeDialog()">
+  <div class="ModalDialog_Container">
+    <div
+      tabindex="0"
+      class="ModalDialog_Content"
+      cdkTrapFocus
+      [cdkTrapFocusAutoCapture]="true"
+    >
+      <h2>sample2（検証中）</h2>
+      <ul>
+        <li><a routerLink="/">cdkfocusregionstartの外</a></li>
+        <li><a routerLink="/" cdkfocusregionstart="true">cdkfocusregionstart</a></li>
+        <li><a routerLink="/" cdkFocusInitial>cdkFocusInitial</a></li>
+        <li><a routerLink="/">何もなし</a></li>
+        <li><a routerLink="/" cdkfocusregionend="true">cdkfocusregionend</a></li>
+        <li><a routerLink="/">cdkfocusregionendの外</a></li>
+      </ul>
+      <button (click)="closeDialog()">閉じる</button>
+    </div>
+  </div>
+</section>
+<!-- ダイアログここまで -->
+
+<nav><a routerLink="/">トップ画面に戻る</a></nav>

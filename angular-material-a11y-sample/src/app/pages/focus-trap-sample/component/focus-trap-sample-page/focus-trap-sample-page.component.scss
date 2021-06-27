@@ -1,0 +1,53 @@
+:root {
+  --z-index-modal-dialog-back: 1px;
+  --z-index-modal-dialog-content: (--z-index-modal-dialog-back + 1);
+}
+
+.Sample1_Content {
+  padding: 8px;
+  border-radius: 8px;
+  border: #ccc 1px solid;
+  width: 400px;
+}
+
+.Sample1_Content a{
+  display: block;
+  margin-bottom: 8px;
+}
+
+// モーダルダイアログ
+.ModalDialog {
+  display: none;
+}
+
+.ModalDialog-visible {
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: var(--z-index-modal-dialog-back);
+  background: rgba(45,45,45, 0.5);
+
+}
+
+.ModalDialog_Container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ModalDialog_Content {
+  background-color: #ffffff;
+  display: block;
+  border-radius: 8px;
+  width: 300px;
+  padding: 16px;
+  opacity: 1;
+  color: black;
+  z-index: var(--z-index-modal-dialog-content);
+
+}
